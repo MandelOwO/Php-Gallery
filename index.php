@@ -1,5 +1,5 @@
 <?php
-define('APP_DIR',  $_SERVER['DOCUMENT_ROOT'].'/09_gallery/Php-Gallery/');
+define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/09_gallery/Php-Gallery/');
 
 
 ?>
@@ -10,8 +10,8 @@ define('APP_DIR',  $_SERVER['DOCUMENT_ROOT'].'/09_gallery/Php-Gallery/');
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Gallery</title>
 </head>
 <body>
 
