@@ -1,5 +1,13 @@
 @import "https://unpkg.com/nes.css@latest/css/nes.min.css";
 @import "https://fonts.googleapis.com/css?family=Press+Start+2P";
+body {
+  margin: 5vh 10vw;
+}
+
+html {
+  min-height: 100%;
+}
+
 header {
   margin-bottom: 2rem;
 }
@@ -17,10 +25,6 @@ header a:hover {
   color: #ff001d;
 }
 
-body {
-  margin: 5vh 10vw;
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -29,6 +33,15 @@ body {
 
 .new-gallery-dialog {
   margin-top: 3rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+.form {
+  display: grid;
+  row-gap: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

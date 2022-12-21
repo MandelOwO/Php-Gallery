@@ -15,14 +15,7 @@ define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/09_gallery/Php-Gallery/');
 </head>
 <body id="home">
 
-<header>
-    <h1>
-        <a href="<?= APP_DIR ?>index.php">
-            <i class="nes-pokeball"></i>
-            <span class="nes-text pokebal-red">Dexlery</span>
-        </a>
-    </h1>
-</header>
+<?php require_once APP_DIR . 'source/header.php'; ?>
 
 <main>
     <section class="nes-container is-rounded">

@@ -12,10 +12,37 @@ define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/09_gallery/Php-Gallery/');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="styles/style.css">
+    <script src="node_modules/remove-focus-outline/outline.js"></script>
 
-    <title>Document</title>
+    <title>Add gallery</title>
 </head>
 <body>
+
+<?php require_once 'source/header.php'; ?>
+
+<main>
+    <form class="nes-container is-rounded form">
+        <div class="nes-field">
+            <label for="name">Název</label>
+            <input type="text" name="name" id="name" class="nes-input">
+        </div>
+
+        <div class="nes-field">
+            <label for="description">Popis</label>
+            <textarea id="description" name="description" class="nes-textarea"></textarea>
+        </div>
+
+        <div class="nes-field">
+            <label for="thumbnail">Náhledová fotka</label>
+            <label class="nes-btn">
+                <span>Select your file</span>
+                <input type="file" id="thumbnail">
+            </label>
+        </div>
+
+        <!--        TODO https://stackoverflow.com/questions/34841434/display-selected-file-in-html-input-before-upload-->
+    </form>
+</main>
 
 </body>
 </html>

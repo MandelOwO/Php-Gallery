@@ -3,6 +3,14 @@
 
 $pokebal-red: #ff001d;
 
+body {
+  margin: 5vh 10vw;
+}
+
+html {
+  min-height: 100%;
+}
+
 header {
   margin-bottom: 2rem;
 
@@ -22,10 +30,6 @@ header {
   color: $pokebal-red;
 }
 
-body {
-  margin: 5vh 10vw;
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -34,4 +38,15 @@ body {
 
 .new-gallery-dialog {
   margin-top: 3rem;
+}
+
+input, textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+.form {
+  display: grid;
+  row-gap: 2rem;
 }
