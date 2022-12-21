@@ -1,10 +1,37 @@
 @import "https://unpkg.com/nes.css@latest/css/nes.min.css";
 @import "https://fonts.googleapis.com/css?family=Press+Start+2P";
 
+$pokebal-red: #ff001d;
+
 header {
   margin-bottom: 2rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    max-width: 350px;
+
+    &:hover {
+      text-decoration-color: $pokebal-red;
+    }
+  }
+}
+
+.pokebal-red {
+  color: $pokebal-red;
 }
 
 body {
   margin: 5vh 10vw;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.new-gallery-dialog {
+  margin-top: 3rem;
 }
