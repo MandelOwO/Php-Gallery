@@ -12,6 +12,6 @@ class App
 
     public static function load($className)
     {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/09_gallery/Php-Gallery/model/' . $className . '.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/09_gallery/Php-Gallery/repos/' . $className . '.php';
     }
 }

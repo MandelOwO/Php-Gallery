@@ -1,6 +1,13 @@
 <?php
 define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/09_gallery/Php-Gallery/');
 
+require_once APP_DIR . 'App.php';
+App::init();
+
+$galleryRepo = new GalleryRepository();
+
+
+$galleries = $galleryRepo->GetAll();
 
 ?>
 
@@ -21,11 +28,12 @@ define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/09_gallery/Php-Gallery/');
     <section class="nes-container is-rounded">
         <div class="gallery-grid">
 
-            <div class="nes-container with-title is-centered">
-                <p class="title">Container</p>
-                <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
-            </div>
-
+            <?php foreach ($galleries as $gallery) { ?>
+                <div class="nes-container with-title is-centered gallery-item">
+                    <p class="title"><?= $gallery['name'] ?></p>
+                    <img src="img/<?= $gallery['thumbnail'] ?>" alt="gallery thumbnail" class="gallery-thumbnail">
+                </div>
+            <?php } ?>
         </div>
     </section>
 

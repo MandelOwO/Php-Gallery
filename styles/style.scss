@@ -34,6 +34,15 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+
+  div {
+
+  }
+
+  img {
+    max-width: 300px;
+    
+  }
 }
 
 .new-gallery-dialog {
@@ -49,4 +58,8 @@ input, textarea {
 .form {
   display: grid;
   row-gap: 2rem;
+}
+
+.buttons {
+  justify-self: end;
 }

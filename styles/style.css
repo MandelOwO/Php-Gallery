@@ -30,6 +30,9 @@ header a:hover {
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
+.gallery-grid img {
+  max-width: 300px;
+}
 
 .new-gallery-dialog {
   margin-top: 3rem;
@@ -42,6 +45,10 @@ input:focus, textarea:focus {
 .form {
   display: grid;
   row-gap: 2rem;
+}
+
+.buttons {
+  justify-self: end;
 }
 
 /*# sourceMappingURL=style.css.map */
