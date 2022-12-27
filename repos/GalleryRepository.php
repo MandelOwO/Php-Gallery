@@ -11,10 +11,10 @@ class GalleryRepository extends BaseRepository
     {
         $query = '
             INSERT INTO tb_galleries SET
-            name = :name,
-            description = :description,
-            created_at = NOW(),
-            thumbnail = :thumbnail
+                                        name = :name,
+                                        description = :description,
+                                        created_at = NOW(),
+                                        thumbnail = :thumbnail
         ';
 
         $params = [
@@ -23,7 +23,7 @@ class GalleryRepository extends BaseRepository
             ':thumbnail' => $thumbnail,
         ];
 
-        $this->dbConn->insert($query, $params);
+        return $this->dbConn->insert($query, $params);
     }
 
 }

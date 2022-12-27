@@ -29,10 +29,10 @@ $galleries = $galleryRepo->GetAll();
         <div class="gallery-grid">
 
             <?php foreach ($galleries as $gallery) { ?>
-                <div class="nes-container with-title is-centered gallery-item">
+                <a href="" class="nes-container with-title is-centered gallery-item"> <!-- TODO link -->
                     <p class="title"><?= $gallery['name'] ?></p>
                     <img src="img/<?= $gallery['thumbnail'] ?>" alt="gallery thumbnail" class="gallery-thumbnail">
-                </div>
+                </a>
             <?php } ?>
         </div>
     </section>

@@ -29,12 +29,12 @@ define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/09_gallery/Php-Gallery/');
           enctype="multipart/form-data">
         <div class="nes-field">
             <label for="name">Název</label>
-            <input type="text" name="name" id="name" class="nes-input">
+            <input type="text" name="name" id="name" class="nes-input" required>
         </div>
 
         <div class="nes-field">
             <label for="description">Popis</label>
-            <textarea id="description" name="description" class="nes-textarea"></textarea>
+            <textarea id="description" name="description" class="nes-textarea" required></textarea>
         </div>
 
         <div class="nes-field">
@@ -42,17 +42,24 @@ define('APP_DIR', $_SERVER['DOCUMENT_ROOT'] . '/09_gallery/Php-Gallery/');
             <label for="file-upload" class="nes-btn">
                 <i class="fa fa-cloud-upload"></i> Vyberte obrázek
             </label>
-            <input id="file-upload" name='upload_cont_img' type="file" style="display:none;" accept="image/*">
+            <input id="file-upload" name='file' type="file" style="display:none;" accept="image/">
 
             <script src="js/FileUpload.js"></script>
         </div>
-        <?php if (isset($_GET['error'])) { ?>
+
+        <?php if (isset($_GET['error'])): ?>
             <span class="nes-text is-error">
             <?php if ($_GET['error'] == 'empty_field') { ?>
                 Vypňte všechna pole
+            <?php } else if ($_GET['error'] == 'file_error') { ?>
+                Soubor se nepodařilo nahrát
+            <?php } else if ($_GET['error'] == 'file_type') { ?>
+                Nepodporovaný formát souboru, použijte prosím: png/jpeg/gif
+            <?php } else if ($_GET['error'] == 'file_size') { ?>
+                Maximální povolená velikost souboru je 10Mb
             <?php } ?>
-        </span>
-        <?php } ?>
+          </span>
+        <?php endif; ?>
 
         <div class="buttons">
             <a href="index.php" class="nes-btn is-error">Zrušit</a>
