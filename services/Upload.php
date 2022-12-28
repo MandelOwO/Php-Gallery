@@ -3,6 +3,8 @@
 /**
  * @var string $name
  * @var string $description
+ * @var int $galleryId
+ * @var string $fileDestination
  */
 
 
@@ -19,6 +21,7 @@ $allowedMimeTypes = [
     'image/gif',
 ];
 
+
 if ($fileSize == 0 || $fileError != 0) {
 //    echo 'File error';
     header('Location: ' . FORM_DIR . '?name=' . $name . '&description=' . $description . '&error=file_error');
@@ -31,10 +34,13 @@ if ($fileSize == 0 || $fileError != 0) {
     die();
 }
 
-if ($fileDestination = 'thumbnail') {
-    $uniqueName = uniqid(sprintf('thumb_%s_', $name));
+
+if ($fileDestination == 'thumbnail') {
+    $uniqueName = uniqid('thumb_');
+} else if ($fileDestination == 'photo') {
+    $uniqueName = uniqid($galleryId . '_');
 } else {
-//    $uniqueName = uniqid(sprintf('', $name)); TODO
+    $uniqueName = uniqid();
 }
 
 $destination = sprintf('%simg/%s.%s', APP_DIR, $uniqueName, $fileExt);

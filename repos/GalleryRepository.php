@@ -26,4 +26,18 @@ class GalleryRepository extends BaseRepository
         return $this->dbConn->insert($query, $params);
     }
 
+    public function GetById($galleryId)
+    {
+        $query = '
+            SELECT * FROM tb_galleries
+            WHERE id_gallery = :id_gallery
+        ';
+
+        $params = [
+            ':id_gallery' => $galleryId,
+        ];
+
+        return $this->dbConn->selectOne($query, $params);
+    }
+
 }

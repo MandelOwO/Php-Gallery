@@ -15,25 +15,7 @@ abstract class BaseRepository
 
         return $this->dbConn->selectAll($sql);
     }
-
-    public function GetById($id)
-    {
-        $sql = 'SELECT * FROM ' . $this->GetTableName() . ' WHERE id = :id';
-
-        return $this->dbConn->selectOne($sql, [
-            ':id' => $id,
-        ]);
-    }
-
-    public function Delete($id)
-    {
-        $sql = 'DELETE FROM ' . $this->GetTableName() . ' WHERE id = :id';
-
-        $this->dbConn->delete($sql, [
-            ':id' => $id,
-        ]);
-
-    }
+    
 
     abstract protected function GetTableName();
 }

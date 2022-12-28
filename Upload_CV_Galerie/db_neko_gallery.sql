@@ -42,57 +42,12 @@ CREATE TABLE `tb_galleries`
   DEFAULT CHARSET = utf8
   COLLATE = utf8_czech_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `tb_likes`
+-- Dumping data for table `tb_galleries`
 --
 
-CREATE TABLE `tb_likes`
-(
-    `id`       int(11)    NOT NULL,
-    `value`    tinyint(1) NOT NULL DEFAULT 1,
-    `photo_id` int(11)    NOT NULL,
-    `user`     int(11)             DEFAULT NULL
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8
-  COLLATE = utf8_czech_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_photos`
---
-
-CREATE TABLE `tb_photos`
-(
-    `id_photo`      int(11)                            NOT NULL,
-    `original_name` varchar(270) COLLATE utf8_czech_ci NOT NULL,
-    `unique_name`   varchar(270) COLLATE utf8_czech_ci NOT NULL,
-    `extension`     varchar(10) COLLATE utf8_czech_ci  NOT NULL,
-    `file_size`     int(11)                            NOT NULL,
-    `title`         varchar(100) COLLATE utf8_czech_ci DEFAULT NULL,
-    `description`   varchar(300) COLLATE utf8_czech_ci DEFAULT NULL,
-    `gallery_id`    int(11)                            DEFAULT NULL
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8
-  COLLATE = utf8_czech_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_ratings`
---
-
-CREATE TABLE `tb_ratings`
-(
-    `id`       int(11) NOT NULL,
-    `value`    float   NOT NULL,
-    `photo_id` int(11) NOT NULL,
-    `user`     int(11) DEFAULT NULL
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8
-  COLLATE = utf8_czech_ci;
+INSERT INTO `tb_galleries` (`id_gallery`, `name`, `created_at`, `description`, `thumbnail`)
+VALUES (25, 'Kočky', '2022-12-27 19:18:26', 'just kočky', 'thumb_Kočky_63ab36f22630e.png');
 
 --
 -- Indexes for dumped tables
@@ -105,26 +60,6 @@ ALTER TABLE `tb_galleries`
     ADD PRIMARY KEY (`id_gallery`);
 
 --
--- Indexes for table `tb_likes`
---
-ALTER TABLE `tb_likes`
-    ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tb_photos`
---
-ALTER TABLE `tb_photos`
-    ADD PRIMARY KEY (`id_photo`),
-    ADD KEY `fk_photos_M-1_galleries` (`gallery_id`);
-
---
--- Indexes for table `tb_ratings`
---
-ALTER TABLE `tb_ratings`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `fk_ratings_M-1_photos` (`photo_id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -133,42 +68,7 @@ ALTER TABLE `tb_ratings`
 --
 ALTER TABLE `tb_galleries`
     MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 25;
-
---
--- AUTO_INCREMENT for table `tb_likes`
---
-ALTER TABLE `tb_likes`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tb_photos`
---
-ALTER TABLE `tb_photos`
-    MODIFY `id_photo` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 6;
-
---
--- AUTO_INCREMENT for table `tb_ratings`
---
-ALTER TABLE `tb_ratings`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `tb_photos`
---
-ALTER TABLE `tb_photos`
-    ADD CONSTRAINT `fk_photos_M-1_galleries` FOREIGN KEY (`gallery_id`) REFERENCES `tb_galleries` (`id_gallery`);
-
---
--- Constraints for table `tb_ratings`
---
-ALTER TABLE `tb_ratings`
-    ADD CONSTRAINT `fk_ratings_M-1_photos` FOREIGN KEY (`photo_id`) REFERENCES `tb_photos` (`id_photo`);
+    AUTO_INCREMENT = 26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;

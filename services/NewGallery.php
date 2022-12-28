@@ -10,14 +10,14 @@ $galleryRepo = new GalleryRepository();
 $photoRepo = new PhotoRepository();
 
 
-var_dump($_POST);
-echo '<br>';
-var_dump($_FILES);
-echo '<br>';
+//var_dump($_POST);
+//echo '<br>';
+//var_dump($_FILES);
+//echo '<br>';
 
 if (empty($_POST)) {
-    echo 'Empty post';
-//    header('Location: ' . APP_DIR . 'new-gallery.php');
+//    echo 'Empty post';
+    header('Location: ' . APP_DIR . 'new-gallery.php');
     die();
 }
 
@@ -26,7 +26,7 @@ $description = trim($_POST['description']);
 $thumbnail = 'thumb.png';
 
 if (empty($name) || empty($description)) {
-    echo 'Empty value';
+//    echo 'Empty value';
     header('Location: ' . FORM_DIR . '?name=' . $name . '&description=' . $description . '&error=empty_field');
     die();
 }
@@ -45,6 +45,6 @@ if (!empty($_FILES['file']['name'])) {
 
 $galleryId = $galleryRepo->Insert($name, $description, $thumbnail);
 
-$photoRepo->Insert($fileName, $uniqueName, $fileExt, $fileSize, null, null, $galleryId);
+$photoRepo->Insert($fileName, $uniqueName, $fileExt, $fileSize, null, $galleryId);
 
 header('Location: ../index.php');

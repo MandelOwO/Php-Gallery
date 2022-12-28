@@ -7,7 +7,7 @@ class PhotoRepository extends BaseRepository
         return 'tb_photos';
     }
 
-    public function Insert($originalName, $uniqueName, $extension, $fileSize, $title, $description, $galleryId)
+    public function Insert($originalName, $uniqueName, $extension, $fileSize, $title, $galleryId)
     {
         $query = '
             INSERT INTO tb_photos SET
@@ -16,8 +16,8 @@ class PhotoRepository extends BaseRepository
                                       extension = :extension,
                                       file_size = :file_size,
                                       title = :title,
-                                      description = :description,
-                                      gallery_id = :gallery_id
+                                      gallery_id = :gallery_id,
+                                      created_at = NOW()
                 
         ';
 
@@ -27,10 +27,28 @@ class PhotoRepository extends BaseRepository
             ':extension' => $extension,
             ':file_size' => $fileSize,
             ':title' => $title,
-            ':description' => $description,
             ':gallery_id' => $galleryId,
         ];
 
-        $this->dbConn->insert($query, $params);
+        return $this->dbConn->insert($query, $params);
+    }
+
+    public function GetPhotosByGallery($galleryId)
+    {
+        $query = "
+            SELECT 
+                p.*,
+                CONCAT(p.unique_name,'.', p.extension) as filename         
+            FROM tb_photos as p
+                INNER JOIN tb_galleries as g ON p.gallery_id = g.id_gallery
+            WHERE id_gallery = :id_gallery
+            ORDER BY created_at DESC 
+        ";
+
+        $params = [
+            'id_gallery' => $galleryId,
+        ];
+
+        return $this->dbConn->selectAll($query, $params);
     }
 }

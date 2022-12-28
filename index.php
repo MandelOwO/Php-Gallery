@@ -29,7 +29,8 @@ $galleries = $galleryRepo->GetAll();
         <div class="gallery-grid">
 
             <?php foreach ($galleries as $gallery) { ?>
-                <a href="" class="nes-container with-title is-centered gallery-item"> <!-- TODO link -->
+                <a href="gallery.php?id_gallery=<?= $gallery['id_gallery'] ?>"
+                   class="nes-container with-title is-centered gallery-item">
                     <p class="title"><?= $gallery['name'] ?></p>
                     <img src="img/<?= $gallery['thumbnail'] ?>" alt="gallery thumbnail" class="gallery-thumbnail">
                 </a>
