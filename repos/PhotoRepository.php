@@ -42,7 +42,7 @@ class PhotoRepository extends BaseRepository
             FROM tb_photos as p
                 INNER JOIN tb_galleries as g ON p.gallery_id = g.id_gallery
             WHERE id_gallery = :id_gallery
-            ORDER BY created_at DESC 
+            ORDER BY p.created_at DESC 
         ";
 
         $params = [
@@ -51,4 +51,23 @@ class PhotoRepository extends BaseRepository
 
         return $this->dbConn->selectAll($query, $params);
     }
+
+    public function GetPhotoDetail($idPhoto)
+    {
+        $query = "
+            SELECT 
+            p.*,
+            CONCAT(p.unique_name,'.', p.extension) as filename    
+            FROM tb_photos as p
+            WHERE id_photo = :id_photo
+        ";
+
+        $params = [
+            ':id_photo' => $idPhoto
+        ];
+
+        return $this->dbConn->selectOne($query, $params);
+    }
+
+
 }

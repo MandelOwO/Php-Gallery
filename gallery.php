@@ -23,7 +23,7 @@ $photos = $photoRepo->GetPhotosByGallery($_GET['id_gallery']);
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <title>Galerie</title>
+    <title><?= $gallery['name'] ?></title>
 </head>
 <body id="gallery">
 
@@ -32,10 +32,12 @@ $photos = $photoRepo->GetPhotosByGallery($_GET['id_gallery']);
 <main>
     <section class="nes-container is-rounded with-title is-centered">
         <p class="title"><?= $gallery['name'] ?></p>
+        <p class="nes-container "><?= $gallery['description'] ?></p>
         <div class="gallery-grid">
 
             <?php foreach ($photos as $photo) { ?>
-                <a class="nes-container is-centered gallery-item" href=""> <!-- TODO link -->
+                <a class="nes-container is-centered gallery-item"
+                   href="photo.php?id_gallery=<?= $gallery['id_gallery'] ?>&id_photo=<?= $photo['id_photo'] ?>">
                     <img src="img/<?= $photo['filename'] ?>" alt="">
                 </a>
             <?php } ?>
