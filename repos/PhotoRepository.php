@@ -38,9 +38,9 @@ class PhotoRepository extends BaseRepository
         $query = "
             SELECT 
                 p.*,
-                CONCAT(p.unique_name,'.', p.extension) as filename         
+                CONCAT(p.unique_name,'.', p.extension) as filename
             FROM tb_photos as p
-                INNER JOIN tb_galleries as g ON p.gallery_id = g.id_gallery
+                INNER JOIN tb_galleries as g ON p.gallery_id = g.id_gallery           
             WHERE id_gallery = :id_gallery
             ORDER BY p.created_at DESC 
         ";
@@ -57,9 +57,9 @@ class PhotoRepository extends BaseRepository
         $query = "
             SELECT 
             p.*,
-            CONCAT(p.unique_name,'.', p.extension) as filename    
+                CONCAT(p.unique_name,'.', p.extension) as filename  
             FROM tb_photos as p
-            WHERE id_photo = :id_photo
+            WHERE id_photo = :id_photo 
         ";
 
         $params = [
@@ -68,6 +68,7 @@ class PhotoRepository extends BaseRepository
 
         return $this->dbConn->selectOne($query, $params);
     }
+
 
     public function Delete($photoId)
     {
@@ -80,7 +81,37 @@ class PhotoRepository extends BaseRepository
             ':id_photo' => $photoId
         ];
 
-        $this->dbConn->delete($query, $params);
+        return $this->dbConn->delete($query, $params);
+    }
+
+    public function AddLike($photoId)
+    {
+        $query = "
+            INSERT INTO tb_likes SET
+                value = 1,
+                photo_id = :photo_id
+        ";
+        $params = [
+            ':photo_id' => $photoId
+        ];
+
+        return $this->dbConn->insert($query, $params);
+
+    }
+
+    public function GetLikesForPhoto($photoId)
+    {
+        $query = "
+            SELECT 
+                COUNT(value) as like_count    
+            FROM tb_likes
+            WHERE photo_id = :photo_id
+        ";
+        $params = [
+            ':photo_id' => $photoId
+        ];
+
+        return $this->dbConn->selectOne($query, $params);
     }
 
 }

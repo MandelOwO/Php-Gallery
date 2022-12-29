@@ -14,9 +14,10 @@ $otherPhotos = $photoRepo->GetPhotosByGallery($idGallery);
 
 $photoInArray = array_search($photo, $otherPhotos);
 
-
 $nextPhoto = $otherPhotos[$photoInArray + 1] ?? null;
 $previousPhoto = $otherPhotos[$photoInArray - 1] ?? null;
+
+$likeCount = $photoRepo->GetLikesForPhoto($photo['id_photo'])['like_count']
 
 
 ?>
@@ -38,7 +39,7 @@ $previousPhoto = $otherPhotos[$photoInArray - 1] ?? null;
 <?php require_once APP_DIR . 'source/header.php'; ?>
 
 <main>
-    <section class="nes-container is-rounded with-title is-centered photo-detail">
+    <section class="nes-container is-rounded with-title is-centered photo-detail" id="photobox">
         <p class="title">
             <
             <?= $photo['title'] ?>
@@ -71,6 +72,23 @@ $previousPhoto = $otherPhotos[$photoInArray - 1] ?? null;
                 <img src="icons/arrow-right.png" alt=""
                      class="arrow">
             </a>
+        </div>
+    </section>
+
+    <section>
+        <div class="nes-container is-rounded social-controls">
+            <a href="services/AddLike.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $photo['id_photo'] ?>"
+               class="nes-badge is-splited">
+                <span class="is-dark"><i class="nes-icon is-small like"></i></span>
+                <span class="is-primary"><?= $likeCount ?></span>
+            </a>
+            <div class="stars">
+                <i class="nes-icon is-medium star is-empty"></i>
+                <i class="nes-icon is-medium star is-empty"></i>
+                <i class="nes-icon is-medium star is-empty"></i>
+                <i class="nes-icon is-medium star is-empty"></i>
+                <i class="nes-icon is-medium star is-empty"></i>
+            </div>
         </div>
     </section>
 </main>

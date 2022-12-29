@@ -132,4 +132,12 @@ section {
   margin-top: 40px;
 }
 
+.social-controls {
+  display: flex;
+  justify-content: space-between;
+}
+.social-controls .nes-badge {
+  align-self: end;
+}
+
 /*# sourceMappingURL=style.css.map */

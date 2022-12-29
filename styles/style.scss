@@ -159,3 +159,11 @@ section {
   margin-top: 40px;
 }
 
+.social-controls {
+  display: flex;
+  justify-content: space-between;
+
+  .nes-badge {
+    align-self: end;
+  }
+}
