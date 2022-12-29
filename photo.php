@@ -10,8 +10,14 @@ $idPhoto = $_GET['id_photo'];
 $idGallery = $_GET['id_gallery'];
 
 $photo = $photoRepo->GetPhotoDetail($idPhoto);
+$otherPhotos = $photoRepo->GetPhotosByGallery($idGallery);
 
-//var_dump($photo);
+$photoInArray = array_search($photo, $otherPhotos);
+
+
+$nextPhoto = $otherPhotos[$photoInArray + 1] ?? null;
+$previousPhoto = $otherPhotos[$photoInArray - 1] ?? null;
+
 
 ?>
 
@@ -45,16 +51,27 @@ $photo = $photoRepo->GetPhotoDetail($idPhoto);
             <a class="close" href="gallery.php?id_gallery=<?= $idGallery ?>">
                 <i class="nes-icon close is-medium close"></i>
             </a>
-            <a class="left" href="photo.php?id_gallery=<?= $idGallery ?>&id_photo=">
+            <a class="left"
+                <?php if ($previousPhoto == null) { ?>
+                    href="gallery.php?id_gallery=<?= $idGallery ?>"
+                <?php } else { ?>
+                    href="photo.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $previousPhoto['id_photo'] ?>"
+                <?php } ?>
+            >
                 <img src="icons/arrow-left.png" alt=""
                      class="arrow">
             </a>
-            <a class="right" href="photo.php?id_gallery=<?= $idGallery ?>&id_photo=">
+            <a class="right"
+                <?php if ($nextPhoto == null) { ?>
+                    href="gallery.php?id_gallery=<?= $idGallery ?>"
+                <?php } else { ?>
+                    href="photo.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $nextPhoto['id_photo'] ?>"
+                <?php } ?>
+            >
+
                 <img src="icons/arrow-right.png" alt=""
                      class="arrow">
             </a>
-
-
         </div>
     </section>
 </main>
