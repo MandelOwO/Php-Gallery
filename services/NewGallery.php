@@ -45,6 +45,7 @@ if (!empty($_FILES['file']['name'])) {
 
 $galleryId = $galleryRepo->Insert($name, $description, $thumbnail);
 
-$photoRepo->Insert($fileName, $uniqueName, $fileExt, $fileSize, null, $galleryId);
-
+if (!empty($_FILES['file']['name'])) {
+    $photoRepo->Insert($fileName, $uniqueName, $fileExt, $fileSize, null, $galleryId);
+}
 header('Location: ../index.php');

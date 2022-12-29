@@ -85,8 +85,6 @@ input, textarea {
 }
 
 .add-photo {
-  margin-top: 40px;
-
   .add-photo-grid {
     display: flex;
     flex-direction: column;
@@ -155,6 +153,9 @@ input, textarea {
       height: auto;
     }
   }
+}
 
+section {
+  margin-top: 40px;
 }
 

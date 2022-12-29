@@ -68,7 +68,6 @@ $previousPhoto = $otherPhotos[$photoInArray - 1] ?? null;
                     href="photo.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $nextPhoto['id_photo'] ?>"
                 <?php } ?>
             >
-
                 <img src="icons/arrow-right.png" alt=""
                      class="arrow">
             </a>

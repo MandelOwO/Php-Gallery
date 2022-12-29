@@ -69,5 +69,18 @@ class PhotoRepository extends BaseRepository
         return $this->dbConn->selectOne($query, $params);
     }
 
+    public function Delete($photoId)
+    {
+        $query = "
+            DELETE FROM tb_photos
+            WHERE id_photo = :id_photo
+        ";
+
+        $params = [
+            ':id_photo' => $photoId
+        ];
+
+        $this->dbConn->delete($query, $params);
+    }
 
 }

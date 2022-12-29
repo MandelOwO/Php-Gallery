@@ -69,9 +69,6 @@ input:focus, textarea:focus {
   padding: 2px;
 }
 
-.add-photo {
-  margin-top: 40px;
-}
 .add-photo .add-photo-grid {
   display: flex;
   flex-direction: column;
@@ -129,6 +126,10 @@ input:focus, textarea:focus {
 .photo-detail .content .arrow {
   width: 50px;
   height: auto;
+}
+
+section {
+  margin-top: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

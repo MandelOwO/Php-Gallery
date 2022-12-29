@@ -40,4 +40,18 @@ class GalleryRepository extends BaseRepository
         return $this->dbConn->selectOne($query, $params);
     }
 
+    public function DeleteGallery($galleryId)
+    {
+        $query = "
+            DELETE FROM tb_galleries
+            WHERE id_gallery = :id_gallery
+        ";
+
+        $params = [
+            ':id_gallery' => $galleryId
+        ];
+
+        $this->dbConn->delete($query, $params);
+    }
+
 }
