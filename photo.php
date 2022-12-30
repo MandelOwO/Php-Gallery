@@ -32,7 +32,7 @@ $likeCount = $photoRepo->GetLikesForPhoto($photo['id_photo'])['like_count']
 
     <link rel="stylesheet" href="styles/style.css">
 
-    <title>Document</title>
+    <title>Dexlery</title>
 </head>
 <body id="photo">
 
@@ -89,6 +89,18 @@ $likeCount = $photoRepo->GetLikesForPhoto($photo['id_photo'])['like_count']
                 <i class="nes-icon is-medium star is-empty"></i>
                 <i class="nes-icon is-medium star is-empty"></i>
             </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="nes-container is-rounded with-title is-centered gallery-tools">
+            <a href="">
+                <button type="button" class="nes-btn is-error">Smazat obrázek</button>
+            </a>
+            <a href="services/SetThumbnail.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $photo['id_photo'] ?>">
+                <button type="button" class="nes-btn is-primary">Použít jako titulní fotku</button>
+            </a>
+
         </div>
     </section>
 </main>

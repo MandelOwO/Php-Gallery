@@ -54,4 +54,21 @@ class GalleryRepository extends BaseRepository
         $this->dbConn->delete($query, $params);
     }
 
+    public function SetPhotoAsThumb($filename, $idGallery)
+    {
+        $query = "
+            UPDATE tb_galleries SET
+                thumbnail = :thumbnail
+            WHERE id_gallery = :id_gallery
+        ";
+
+        $params = [
+            ':thumbnail' => $filename,
+            ':id_gallery' => $idGallery
+        ];
+
+        return $this->dbConn->update($query, $params);
+
+    }
+
 }

@@ -48,7 +48,7 @@ $photos = $photoRepo->GetPhotosByGallery($_GET['id_gallery']);
     <section class="add-photo">
         <form action="services/AddPhoto.php?id_gallery=<?= $gallery['id_gallery'] ?>" method="post"
               class="nes-container is-rounded with-title" enctype="multipart/form-data">
-            <p class="title">Přidat fotku</p>
+            <p class="title">Přidat obrázek</p>
             <div class="add-photo-grid">
                 <div class="nes-field photo-title">
                     <label for="title">Popisek</label>
@@ -86,14 +86,13 @@ $photos = $photoRepo->GetPhotosByGallery($_GET['id_gallery']);
     </section>
 
     <section>
-        <div class="nes-container is-rounded with-title is-centered gallery-tools">
+        <div class="nes-container is-rounded is-centered gallery-tools">
             <a href="services/DeletePhoto.php?id_gallery=<?= $gallery['id_gallery'] ?>&method=flush">
                 <button type="button" class="nes-btn is-warning">Vyprázdnit galerii</button>
             </a>
             <a href="services/DeleteGallery.php?id_gallery=<?= $gallery['id_gallery'] ?>">
                 <button type="button" class="nes-btn is-error">Smazat galerii</button>
             </a>
-
         </div>
     </section>
 </main>
