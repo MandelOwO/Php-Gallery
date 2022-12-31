@@ -15,5 +15,17 @@ $photoRepo = new PhotoRepository();
 if ($method == 'flush') {
     $photos = $photoRepo->GetPhotosByGallery($idGallery);
 
+    foreach ($photos as $photo) {
+        $photoRepo->Delete($photo['id_photo']);
+        unlink('../img/' . $photo['filename']);
+    }
     header('Location: ' . FORM_DIR);
+
+} else if ($method == 'single') {
+    $photo = $photoRepo->GetPhotoDetail($_GET['id_photo']);
+
+    $photoRepo->Delete($photo['id_photo']);
+    unlink('../img/' . $photo['filename']);
+
+    header("Location: " . FORM_DIR);
 }

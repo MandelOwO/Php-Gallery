@@ -94,7 +94,7 @@ $likeCount = $photoRepo->GetLikesForPhoto($photo['id_photo'])['like_count']
 
     <section>
         <div class="nes-container is-rounded with-title is-centered gallery-tools">
-            <a href="">
+            <a href="services/DeletePhoto.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $photo['id_photo'] ?>&method=single">
                 <button type="button" class="nes-btn is-error">Smazat obrázek</button>
             </a>
             <a href="services/SetThumbnail.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $photo['id_photo'] ?>">
