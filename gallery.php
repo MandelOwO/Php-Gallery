@@ -21,7 +21,7 @@ $photos = $photoRepo->GetPhotosByGallery($_GET['id_gallery']);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="styles/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <title><?= $gallery['name'] ?></title>
 </head>
@@ -96,6 +96,5 @@ $photos = $photoRepo->GetPhotosByGallery($_GET['id_gallery']);
         </div>
     </section>
 </main>
-
 </body>
 </html>

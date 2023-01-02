@@ -35,6 +35,7 @@ $rating = $photoRepo->GetRatingForPhoto($photo['id_photo'])['avg_rating'];
     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.6.3.min.js">
 
     <title>Dexlery</title>
+
 </head>
 <body id="photo">
 
@@ -115,9 +116,22 @@ $rating = $photoRepo->GetRatingForPhoto($photo['id_photo'])['avg_rating'];
             <a href="services/SetThumbnail.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $photo['id_photo'] ?>">
                 <button type="button" class="nes-btn is-primary">Použít jako titulní fotku</button>
             </a>
+            <!--            <button onclick="deletePhotoDialog()" data-photo="35">Smazat fotku</button>-->
         </div>
     </section>
 </main>
+
+<script>
+    function deletePhotoDialog() {
+        // const queryString = window.location.search;
+        // const urlParams = new URLSearchParams(queryString);
+
+        if (confirm("Opravdu chcete smazat obrázek")) {
+            // window.location = 'services/DeletePhoto.php?id_gallery=' + urlParams.get('id_gallery') + '&id_photo=' +
+        }
+    }
+</script>
+
 
 </body>
 </html>
