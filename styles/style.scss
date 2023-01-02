@@ -166,4 +166,31 @@ section {
   .nes-badge {
     align-self: end;
   }
+
+  .stars {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+
+    @keyframes star-scale {
+      from {
+        scale: 1;
+
+      }
+      to {
+        scale: 1.2;
+      }
+    }
+
+    a:hover {
+      animation: star-scale 0.2s linear forwards;
+    }
+
+    p {
+      align-self: end;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
+

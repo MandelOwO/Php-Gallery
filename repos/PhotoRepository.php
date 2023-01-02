@@ -113,6 +113,36 @@ class PhotoRepository extends BaseRepository
 
         return $this->dbConn->selectOne($query, $params);
     }
-    
+
+    public function AddRating($photoId, $value)
+    {
+        $query = "
+            INSERT INTO tb_ratings SET
+                photo_id = :photo_id,
+                value = :value
+        ";
+
+        $params = [
+            ':photo_id' => $photoId,
+            ':value' => $value,
+        ];
+
+        $this->dbConn->insert($query, $params);
+    }
+
+    public function GetRatingForPhoto($photoId)
+    {
+        $query = "
+            SELECT 
+                ROUND(AVG(value),1) as avg_rating
+            FROM tb_ratings
+            WHERE photo_id = :photo_id
+        ";
+        $params = [
+            ':photo_id' => $photoId
+        ];
+
+        return $this->dbConn->selectOne($query, $params);
+    }
 
 }

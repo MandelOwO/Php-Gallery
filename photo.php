@@ -17,7 +17,8 @@ $photoInArray = array_search($photo, $otherPhotos);
 $nextPhoto = $otherPhotos[$photoInArray + 1] ?? null;
 $previousPhoto = $otherPhotos[$photoInArray - 1] ?? null;
 
-$likeCount = $photoRepo->GetLikesForPhoto($photo['id_photo'])['like_count']
+$likeCount = $photoRepo->GetLikesForPhoto($photo['id_photo'])['like_count'];
+$rating = $photoRepo->GetRatingForPhoto($photo['id_photo'])['avg_rating'];
 
 
 ?>
@@ -31,6 +32,7 @@ $likeCount = $photoRepo->GetLikesForPhoto($photo['id_photo'])['like_count']
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.6.3.min.js">
 
     <title>Dexlery</title>
 </head>
@@ -83,11 +85,24 @@ $likeCount = $photoRepo->GetLikesForPhoto($photo['id_photo'])['like_count']
                 <span class="is-primary"><?= $likeCount ?></span>
             </a>
             <div class="stars">
-                <i class="nes-icon is-medium star is-empty"></i>
-                <i class="nes-icon is-medium star is-empty"></i>
-                <i class="nes-icon is-medium star is-empty"></i>
-                <i class="nes-icon is-medium star is-empty"></i>
-                <i class="nes-icon is-medium star is-empty"></i>
+                <a href="services/AddStar.php?id_photo=<?= $photo['id_photo'] ?>&id_gallery=<?= $idGallery ?>&value=1">
+                    <i class="nes-icon is-medium star <?= $rating < 1 ? 'is-empty' : '' ?> "></i>
+                </a>
+                <a href="services/AddStar.php?id_photo=<?= $photo['id_photo'] ?>&id_gallery=<?= $idGallery ?>&value=2">
+                    <i class="nes-icon is-medium star <?= $rating < 2 ? 'is-empty' : '' ?> "></i>
+                </a>
+                <a href="services/AddStar.php?id_photo=<?= $photo['id_photo'] ?>&id_gallery=<?= $idGallery ?>&value=3">
+                    <i class="nes-icon is-medium star <?= $rating < 3 ? 'is-empty' : '' ?> "></i>
+                </a>
+                <a href="services/AddStar.php?id_photo=<?= $photo['id_photo'] ?>&id_gallery=<?= $idGallery ?>&value=4">
+                    <i class="nes-icon is-medium star <?= $rating < 4 ? 'is-empty' : '' ?> "></i>
+                </a>
+                <a href="services/AddStar.php?id_photo=<?= $photo['id_photo'] ?>&id_gallery=<?= $idGallery ?>&value=5">
+                    <i class="nes-icon is-medium star <?= $rating < 5 ? 'is-empty' : '' ?> "></i>
+                </a>
+                <p>
+                    <?= $rating ?>
+                </p>
             </div>
         </div>
     </section>
@@ -100,7 +115,6 @@ $likeCount = $photoRepo->GetLikesForPhoto($photo['id_photo'])['like_count']
             <a href="services/SetThumbnail.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $photo['id_photo'] ?>">
                 <button type="button" class="nes-btn is-primary">Použít jako titulní fotku</button>
             </a>
-
         </div>
     </section>
 </main>

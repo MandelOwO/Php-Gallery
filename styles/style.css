@@ -139,5 +139,26 @@ section {
 .social-controls .nes-badge {
   align-self: end;
 }
+.social-controls .stars {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+@keyframes star-scale {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.2;
+  }
+}
+.social-controls .stars a:hover {
+  animation: star-scale 0.2s linear forwards;
+}
+.social-controls .stars p {
+  align-self: end;
+  margin: 0;
+  padding: 0;
+}
 
 /*# sourceMappingURL=style.css.map */
