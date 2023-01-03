@@ -187,6 +187,10 @@ VALUES (1, 3, 37, NULL),
 --
 -- Indexes for dumped tables
 --
+-- Indexes for table `tb_galleries`
+--
+ALTER TABLE `tb_galleries`
+    ADD PRIMARY KEY (`id_gallery`);
 
 --
 -- Indexes for table `tb_galleries`

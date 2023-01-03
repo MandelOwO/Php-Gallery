@@ -38,7 +38,7 @@
 
 </head>
 <body>
-<div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false">
+<div id="drop_file_zone" ondrop="upload_file(event, 25)" ondragover="return false">
 
     <div id="drag_upload_file">
         <p>Drop file here</p>
@@ -52,10 +52,10 @@
 <script>
     var fileobj;
 
-    function upload_file(e) {
+    function upload_file(e, idGallery) {
         e.preventDefault();
         fileobj = e.dataTransfer.files[0];
-        ajax_file_upload(fileobj);
+        ajax_file_upload(fileobj, idGallery);
     }
 
     function file_explorer() {
@@ -66,12 +66,12 @@
         };
     }
 
-    function ajax_file_upload(file_obj) {
+    function ajax_file_upload(file_obj, idGallery) {
         if (file_obj != undefined) {
             var form_data = new FormData();
             form_data.append('file', file_obj);
             var xhttp = new XMLHttpRequest();
-            xhttp.open("POST", './services/AddPhoto.php', true);
+            xhttp.open("POST", './services/AddPhoto.php?id_gallery=' + idGallery, true);
             xhttp.onload = function (event) {
                 oOutput = document.querySelector('.img-content');
                 if (xhttp.status == 200) {

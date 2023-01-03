@@ -110,24 +110,18 @@ $rating = $photoRepo->GetRatingForPhoto($photo['id_photo'])['avg_rating'];
 
     <section>
         <div class="nes-container is-rounded with-title is-centered gallery-tools">
-            <a href="services/DeletePhoto.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $photo['id_photo'] ?>&method=single">
-                <button type="button" class="nes-btn is-error">Smazat obrázek</button>
-            </a>
+            <button onclick="deletePhotoDialog(<?= $photo['id_photo'] ?>, <?= $idGallery ?>)" data-photo="35" class="nes-btn is-error">Smazat obrázek</button>
             <a href="services/SetThumbnail.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $photo['id_photo'] ?>">
                 <button type="button" class="nes-btn is-primary">Použít jako titulní fotku</button>
             </a>
-            <!--            <button onclick="deletePhotoDialog()" data-photo="35">Smazat fotku</button>-->
         </div>
     </section>
 </main>
 
 <script>
-    function deletePhotoDialog() {
-        // const queryString = window.location.search;
-        // const urlParams = new URLSearchParams(queryString);
-
+    function deletePhotoDialog(photoId, galleryId) {
         if (confirm("Opravdu chcete smazat obrázek")) {
-            // window.location = 'services/DeletePhoto.php?id_gallery=' + urlParams.get('id_gallery') + '&id_photo=' +
+            window.location = 'services/DeletePhoto.php?id_gallery=' + galleryId + '&id_photo=' + photoId + '&method=single';
         }
     }
 </script>
