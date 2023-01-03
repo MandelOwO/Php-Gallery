@@ -262,4 +262,8 @@ section {
   padding: 0;
 }
 
+.dropzone:-moz-drag-over {
+  background-color: grey;
+}
+
 /*# sourceMappingURL=style.css.map */

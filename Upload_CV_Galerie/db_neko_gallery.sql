@@ -65,15 +65,6 @@ CREATE TABLE `tb_likes`
   DEFAULT CHARSET = utf8
   COLLATE = utf8_czech_ci;
 
---
--- Dumping data for table `tb_likes`
---
-
-INSERT INTO `tb_likes` (`id`, `value`, `photo_id`, `user`)
-VALUES (141, 1, 36, NULL),
-       (142, 1, 36, NULL),
-       (143, 1, 36, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -100,15 +91,16 @@ CREATE TABLE `tb_photos`
 
 INSERT INTO `tb_photos` (`id_photo`, `original_name`, `unique_name`, `extension`, `file_size`, `title`, `gallery_id`,
                          `created_at`)
-VALUES (33, '1332010_20221204002620_1.png', '25_63b0077257932', 'png', 3983634, ':)', 25, '2022-12-31 10:57:06'),
-       (35, '1332010_20221204001205_1.png', '25_63b007875f6f7', 'png', 4712094, 'YO SPRINGTRAP', 25,
-        '2022-12-31 10:57:27'),
-       (36, '1332010_20221203233912_1.png', '25_63b007944eff3', 'png', 4590211, ':(', 25, '2022-12-31 10:57:40'),
-       (37, '1332010_20221204001954_1.png', '25_63b00799f0dbc', 'png', 4379810, 'sleep', 25, '2022-12-31 10:57:45'),
-       (38, '1332010_20221203233534_1.png', '25_63b007a014c72', 'png', 6011815, 'sittin', 25, '2022-12-31 10:57:52'),
-       (43, 'Untitled.png', '_63b305a1ce424', 'png', 130357, '', NULL, '2023-01-02 17:26:09'),
+VALUES (43, 'Untitled.png', '_63b305a1ce424', 'png', 130357, '', NULL, '2023-01-02 17:26:09'),
        (44, 'Untitled.png', '_63b305bb49609', 'png', 130357, '', NULL, '2023-01-02 17:26:35'),
-       (45, 'Untitled.png', '_63b305d80b6c5', 'png', 130357, '', NULL, '2023-01-02 17:27:04');
+       (45, 'Untitled.png', '_63b305d80b6c5', 'png', 130357, '', NULL, '2023-01-02 17:27:04'),
+       (61, '1332010_20221204002620_1.png', '25_63b46fab41213', 'png', 3983634, '', 25, '2023-01-03 19:10:51'),
+       (62, '1332010_20221204001954_1.png', '25_63b46fad7db50', 'png', 4379810, '', 25, '2023-01-03 19:10:53'),
+       (63, '1332010_20221204001205_1.png', '25_63b46fb1d810d', 'png', 4712094, '', 25, '2023-01-03 19:10:57'),
+       (65, '1332010_20221203235934_1.png', '25_63b46fbe88643', 'png', 2171721, '', 25, '2023-01-03 19:11:10'),
+       (66, '1332010_20221203233912_1.png', '25_63b46fbfd8b3e', 'png', 4590211, '', 25, '2023-01-03 19:11:11'),
+       (67, '1332010_20221203233534_1.png', '25_63b46fc0e1a55', 'png', 6011815, '', 25, '2023-01-03 19:11:12'),
+       (69, '1332010_20221125231225_1.png', '25_63b46fc424d67', 'png', 3953308, '', 25, '2023-01-03 19:11:16');
 
 -- --------------------------------------------------------
 
@@ -127,70 +119,8 @@ CREATE TABLE `tb_ratings`
   COLLATE = utf8_czech_ci;
 
 --
--- Dumping data for table `tb_ratings`
---
-
-INSERT INTO `tb_ratings` (`id`, `value`, `photo_id`, `user`)
-VALUES (1, 3, 37, NULL),
-       (10, 5, 36, NULL),
-       (11, 3, 36, NULL),
-       (12, 4, 36, NULL),
-       (13, 1, 36, NULL),
-       (14, 2, 36, NULL),
-       (15, 3, 36, NULL),
-       (16, 2, 36, NULL),
-       (17, 5, 36, NULL),
-       (18, 5, 36, NULL),
-       (19, 5, 36, NULL),
-       (20, 4, 36, NULL),
-       (21, 5, 36, NULL),
-       (22, 4, 36, NULL),
-       (23, 4, 36, NULL),
-       (24, 4, 36, NULL),
-       (25, 5, 36, NULL),
-       (26, 5, 36, NULL),
-       (27, 5, 36, NULL),
-       (28, 5, 36, NULL),
-       (29, 5, 36, NULL),
-       (30, 5, 36, NULL),
-       (31, 5, 36, NULL),
-       (32, 5, 36, NULL),
-       (33, 5, 36, NULL),
-       (34, 5, 36, NULL),
-       (35, 2, 36, NULL),
-       (36, 1, 36, NULL),
-       (37, 1, 36, NULL),
-       (38, 1, 36, NULL),
-       (39, 1, 36, NULL),
-       (40, 1, 36, NULL),
-       (41, 1, 36, NULL),
-       (42, 1, 36, NULL),
-       (43, 5, 36, NULL),
-       (44, 5, 35, NULL),
-       (45, 4, 35, NULL),
-       (46, 1, 35, NULL),
-       (47, 1, 35, NULL),
-       (48, 1, 35, NULL),
-       (49, 1, 35, NULL),
-       (50, 1, 35, NULL),
-       (51, 1, 35, NULL),
-       (52, 3, 33, NULL),
-       (53, 4, 33, NULL),
-       (54, 4, 36, NULL),
-       (55, 3, 38, NULL),
-       (56, 5, 38, NULL),
-       (57, 5, 38, NULL),
-       (58, 1, 38, NULL),
-       (59, 1, 38, NULL),
-       (60, 1, 38, NULL);
-
---
 -- Indexes for dumped tables
 --
--- Indexes for table `tb_galleries`
---
-ALTER TABLE `tb_galleries`
-    ADD PRIMARY KEY (`id_gallery`);
 
 --
 -- Indexes for table `tb_galleries`
@@ -228,28 +158,28 @@ ALTER TABLE `tb_ratings`
 --
 ALTER TABLE `tb_galleries`
     MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 34;
+    AUTO_INCREMENT = 36;
 
 --
 -- AUTO_INCREMENT for table `tb_likes`
 --
 ALTER TABLE `tb_likes`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 149;
+    AUTO_INCREMENT = 159;
 
 --
 -- AUTO_INCREMENT for table `tb_photos`
 --
 ALTER TABLE `tb_photos`
     MODIFY `id_photo` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 49;
+    AUTO_INCREMENT = 74;
 
 --
 -- AUTO_INCREMENT for table `tb_ratings`
 --
 ALTER TABLE `tb_ratings`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 72;
+    AUTO_INCREMENT = 82;
 
 --
 -- Constraints for dumped tables

@@ -75,9 +75,11 @@
             xhttp.onload = function (event) {
                 oOutput = document.querySelector('.img-content');
                 if (xhttp.status == 200) {
-                    oOutput.innerHTML = "<img src='" + this.responseText + "' alt='The Image' />";
+                    // oOutput.innerHTML = "<img src='" + this.responseText + "' alt='The Image' />";
+                    oOutput.innerHTML = "Soubor byl nahrán, prosím obnovte stránku.";
                 } else {
                     oOutput.innerHTML = "Error " + xhttp.status + " occurred when trying to upload your file.";
+
                 }
             }
 

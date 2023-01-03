@@ -110,7 +110,10 @@ $rating = $photoRepo->GetRatingForPhoto($photo['id_photo'])['avg_rating'];
 
     <section>
         <div class="nes-container is-rounded with-title is-centered gallery-tools">
-            <button onclick="deletePhotoDialog(<?= $photo['id_photo'] ?>, <?= $idGallery ?>)" data-photo="35" class="nes-btn is-error">Smazat obrázek</button>
+            <button onclick="deletePhotoDialog(<?= $photo['id_photo'] ?>, <?= $idGallery ?>, 'obrázek')"
+                    class="nes-btn is-error">Smazat obrázek
+            </button>
+            <script src="js/DeleteConfirm.js"></script>
             <a href="services/SetThumbnail.php?id_gallery=<?= $idGallery ?>&id_photo=<?= $photo['id_photo'] ?>">
                 <button type="button" class="nes-btn is-primary">Použít jako titulní fotku</button>
             </a>
@@ -119,11 +122,7 @@ $rating = $photoRepo->GetRatingForPhoto($photo['id_photo'])['avg_rating'];
 </main>
 
 <script>
-    function deletePhotoDialog(photoId, galleryId) {
-        if (confirm("Opravdu chcete smazat obrázek")) {
-            window.location = 'services/DeletePhoto.php?id_gallery=' + galleryId + '&id_photo=' + photoId + '&method=single';
-        }
-    }
+
 </script>
 
 
