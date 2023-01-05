@@ -8,6 +8,12 @@ define('FORM_DIR', '../gallery.php?id_gallery=' . $galleryId);
 require_once APP_DIR . 'App.php';
 App::init();
 $photoRepo = new PhotoRepository();
+$galleryRepo = new GalleryRepository();
+
+if (!$galleryRepo->GetById($galleryId)){
+    header('Location: ' . FORM_DIR);
+    die();
+}
 
 $name = trim($_POST['title']);
 $description = 'photo';

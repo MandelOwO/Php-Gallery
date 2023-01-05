@@ -10,6 +10,11 @@ require_once APP_DIR . 'App.php';
 App::init();
 $photoRepo = new PhotoRepository();
 
+if (!$photoRepo->GetById($idPhoto)){
+    header('Location: ' . FORM_DIR);
+    die();
+}
+
 $photoRepo->AddRating($idPhoto, $value);
 
 header('Location: ' . FORM_DIR);

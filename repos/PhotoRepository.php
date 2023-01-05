@@ -145,4 +145,17 @@ class PhotoRepository extends BaseRepository
         return $this->dbConn->selectOne($query, $params);
     }
 
+    public function GetById($photoId)
+    {
+        $query = "
+            SELECT * FROM tb_photos
+            WHERE id_photo = :photo_id
+        ";
+        $params = [
+            ':photo_id' => $photoId
+        ];
+
+        return $this->dbConn->selectOne($query, $params);
+    }
+
 }

@@ -1,5 +1,4 @@
 <?php
-
 $idPhoto = $_GET['id_photo'];
 $idGallery = $_GET['id_gallery'];
 
@@ -9,6 +8,11 @@ define('FORM_DIR', '../photo.php?id_gallery=' . $idGallery . '&id_photo=' . $idP
 require_once APP_DIR . 'App.php';
 App::init();
 $photoRepo = new PhotoRepository();
+
+if (!$photoRepo->GetById($idPhoto)){
+    header('Location: ' . FORM_DIR);
+    die();
+}
 
 $photoRepo->AddLike($idPhoto);
 
